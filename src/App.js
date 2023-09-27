@@ -1,31 +1,10 @@
 import './App.css';
-import{useEffect, useState} from 'react'
+import Position from './components/Position';
 
 function App() {
-  const [lat, setLat] = useState(0);
-  const [lng, setLng] = useState(0);
-
-useEffect(() => {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(position => {
-      setLat(position.coords.latitude);
-      setLng(position.coords.longitude);
-    }, (error) => {
-      alert(error);
-    })
-  }
-  else{
-    alert('Selaimsestasi puuttuu geolocation tuki')
-  }
-
-}, [])
 
   return (
-    <p>
-      Position:
-      {lat.toFixed(3)} , 
-      {lng.toFixed(3)}
-    </p>
+    <Position />
   );
 }
 
